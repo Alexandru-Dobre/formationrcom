@@ -10,7 +10,6 @@ return array(
                     '/css/bootstrap.min.css',
                 ),
                 'js' => array(
-                    '/js/blockDef.js',
                 ),
                 'img' => array(
                 )
@@ -22,5 +21,13 @@ return array(
             'maxlifeTime' => 60,
             'definitionFile' => realpath(__DIR__ . "/blocks/") . '/carrouselVideo.json'
         ),
-    )
+    ),
+    'extension_paths' => array(
+        'form' => array(
+            'path' => realpath(__DIR__ . '/../expaths/form'),
+            'css' => array(),
+            'js' => array('js/blockDef.js'),
+            'angularModules' => array()
+        ),
+    ),
 );
