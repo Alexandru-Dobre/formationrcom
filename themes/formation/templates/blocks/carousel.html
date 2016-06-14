@@ -1,0 +1,14 @@
+<div id="{{'block'+block.id}}" class="owl-carousel" ng-controller="CarouselController as carouselCtrl">
+    <div ng-repeat="content in carouselCtrl.contents track by $index" ng-if="content.fields[blockConfig.imageField]">
+            <img ng-if="!isArray(content.fields[blockConfig.imageField])" class="lazyOwl" data-src="{{rubedo.imageUrl.getUrlByMediaId(content.fields[blockConfig.imageField],carouselCtrl.getImageOptions())}}"
+                    alt="{{content.fields.text}}"
+                    title="{{content.fields.text}}">
+            <img ng-if="isArray(content.fields[blockConfig.imageField])" class="lazyOwl" data-src="{{rubedo.imageUrl.getUrlByMediaId(content.fields[blockConfig.imageField][0],carouselCtrl.getImageOptions())}}"
+                    alt="{{content.fields.text}}"
+                    title="{{content.fields.text}}">
+                <div ng-if="blockConfig.showCaption" class="rubedo-caption">
+                    <h3>{{content.fields.text}}</h3>
+                    <p ng-if="blockConfig.showSummary">{{content.fields.summary}}</p>
+                </div>
+    </div>
+</div>

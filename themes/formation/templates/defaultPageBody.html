@@ -1,0 +1,10 @@
+    <div ng-repeat="row in rubedo.current.page.rows track by $index"
+         ng-if="row.code!='centered'"
+         ng-include="rubedo.componentsService.getRowTemplate(row.customTemplate)"
+         ng-class="rubedo.componentsService.resolveResponsiveClass(row.responsive)" class="row"></div>
+    <div class="container" ng-repeat="row in rubedo.current.page.rows track by $index" ng-if="row.code=='centered'">
+        <div
+                ng-include="rubedo.componentsService.getRowTemplate(row.customTemplate)"
+                ng-class="rubedo.componentsService.resolveResponsiveClass(row.responsive)" class="row"></div>
+    </div>
+
