@@ -10,10 +10,17 @@ return array(
                     '/css/bootstrap.min.css',
                 ),
                 'js' => array(
+                    '/js/blockDef.js',
                 ),
                 'img' => array(
                 )
             ),
         )
     ),
+    'blocksDefinition' => array(
+        'carrouselVideo' => array(
+            'maxlifeTime' => 60,
+            'definitionFile' => realpath(__DIR__ . "/blocks/") . '/carrouselVideo.json'
+        ),
+    )
 );
