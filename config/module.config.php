@@ -21,6 +21,10 @@ return array(
             'maxlifeTime' => 60,
             'definitionFile' => realpath(__DIR__ . "/blocks/") . '/carrouselVideo.json'
         ),
+        'geoSearchResults' => array(
+            'maxlifeTime' => 60,
+            'definitionFile' => realpath(__DIR__ . "/blocks/") . '/geoSearchResults.json'
+        ),
     ),
     'extension_paths' => array(
         'form' => array(
