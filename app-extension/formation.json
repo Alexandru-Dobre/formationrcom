@@ -1,0 +1,10 @@
+{
+    "extensionName": "formation",
+    "models":["Journal"],
+    "stores":["Journaux"],
+    "views":[],
+    "launchButtons":{
+        "studio":[],
+        "administration":[]
+    }
+}

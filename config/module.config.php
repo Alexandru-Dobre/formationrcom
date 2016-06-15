@@ -47,4 +47,46 @@ return array(
     'namespaces_api' => array(
         'Formationnrcom',
     ),
+    'appExtension' => array(
+        'formation' => array(
+            'basePath' => realpath(__DIR__ . '/../app-extension') . '/formation',
+            'definitionFile' => realpath(__DIR__ . '/../app-extension') . '/formation.json'
+        )
+    ),
+    'router' => array (
+        'routes' => array(
+            'journal' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route' => '/backoffice/journal',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'Formationnrcom\\Backoffice\\Controller',
+                        'controller' => 'journal',
+                        'action' => 'index'
+                    ),
+                ),
+                'may_terminate' => true,
+                'child_routes' => array(
+                    'default' => array(
+                        'type' => 'Segment',
+                        'options' => array(
+                            'route' => '/[:action]',
+                            '__NAMESPACE__' => 'Formationnrcom\\Backoffice\\Controller',
+                            'constraints' => array(
+                                'controller' => 'journal',
+                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*'
+                            ),
+                            'defaults' => array()
+                        )
+                    )
+                )
+            ),
+
+        ),
+    ),
+    'controllers' => array(
+        'invokables' => array(
+            'Formationnrcom\\Backoffice\\Controller\\Journal' => 'Formationnrcom\\Backoffice\\Controller\\JournalController'
+        ),
+    ),
 );
