@@ -1,6 +1,11 @@
 <?php
 namespace Formationnrcom;
 
+use Rubedo\Services\Manager;
+use Zend\Mvc\MvcEvent;
+use Rubedo\Collection\WorkflowAbstractCollection;
+
+
 class Module
 {
     public function getConfig()
@@ -16,5 +21,15 @@ class Module
                 ),
             ),
         );
+    }
+    public function onBootstrap(MvcEvent $e)
+    {
+        $eventManager = $e->getApplication()->getEventManager();
+        $eventManager->attach(array(
+            WorkflowAbstractCollection::POST_PUBLISH_COLLECTION
+        ), array(
+            Manager::getService('Journaux'),
+            'syncContentCreate'
+        ), 1);
     }
 }

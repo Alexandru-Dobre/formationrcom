@@ -17,6 +17,8 @@
 
 namespace Formationnrcom\Collection;
 use Rubedo\Collection\AbstractCollection;
+use Rubedo\Services\Manager;
+use Zend\EventManager\EventInterface;
 
 class Journaux extends AbstractCollection
 {
@@ -24,5 +26,10 @@ class Journaux extends AbstractCollection
     {
         $this->_collectionName = 'Journaux';
         parent::__construct();
+    }
+    public function syncContentCreate(EventInterface $e){
+        $data = $e->getParam('data', array());
+        $content = Manager::getService("Contents")->findById($data['id'], true, false);
+        $this->create(["titre"=>$content["text"]]);
     }
 }
