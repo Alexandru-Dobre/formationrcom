@@ -29,6 +29,22 @@ class JournauxResource extends AbstractResource {
                             ->setKey('journaux')
                             ->setRequired()
                     );
+            })->editVerb('post', function(VerbDefinitionEntity &$entity) {
+                $entity
+                    ->setDescription('Ajouter un journal')
+                    ->identityRequired()
+                    ->addInputFilter(
+                        (new FilterDefinitionEntity())
+                            ->setDescription('Titre')
+                            ->setKey('titre')
+                            ->setRequired()
+                    )
+                    ->addOutputFilter(
+                        (new FilterDefinitionEntity())
+                            ->setDescription('Journal')
+                            ->setKey('journal')
+                            ->setRequired()
+                    );
             });
     }
 
@@ -38,6 +54,16 @@ class JournauxResource extends AbstractResource {
         return [
             "success"=>true,
             "journaux"=>$data["data"]
+        ];
+    }
+
+    public function postAction($params)
+    {
+        $newJournal=["titre"=>$params["titre"]];
+        $data=Manager::getService("Journaux")->create($newJournal);
+        return [
+            "success"=>$data["success"],
+            "journal"=>$data["data"]
         ];
     }
 
