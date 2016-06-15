@@ -3,6 +3,11 @@ blocksConfig.carrouselVideo={
     "externalDependencies":["/extension-path/form/src/modules/rubedoBlocks/controllers/CarrouselVideoController.js",'/components/OwlFonk/OwlCarousel/owl-carousel/owl.carousel.min.js'],
     "absoluteUrl": true
 };
+blocksConfig.journalViewer={
+    "template": "/extension-path/form/templates/blocks/journalViewer.html",
+    "externalDependencies":["/extension-path/form/src/modules/rubedoBlocks/controllers/JournalViewerController.js"],
+    "absoluteUrl": true
+};
 angular.module("rubedoDataAccess").factory('Journaux',['$http',function($http){
     var serviceInstance = {};
     serviceInstance.getList=function(){

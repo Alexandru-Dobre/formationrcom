@@ -25,6 +25,10 @@ return array(
             'maxlifeTime' => 60,
             'definitionFile' => realpath(__DIR__ . "/blocks/") . '/geoSearchResults.json'
         ),
+        'journalViewer' => array(
+            'maxlifeTime' => 60,
+            'definitionFile' => realpath(__DIR__ . "/blocks/") . '/journalViewer.json'
+        ),
     ),
     'extension_paths' => array(
         'form' => array(

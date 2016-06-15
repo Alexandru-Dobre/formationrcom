@@ -1,0 +1,22 @@
+{
+    "type": "Journal viewer",
+    "description": "Affichage/edition de journaux",
+    "configBasique": {
+        "title": "Journal viewer",
+        "bType": "journalViewer",
+        "flex": 1,
+        "champsConfig": {
+            "simple": [],
+            "avance": [
+
+            ]
+        },
+        "configBloc": {
+
+
+        }
+    },
+    "category": "Formation",
+    "bType": "journalViewer",
+    "id": "5761216780dd20083200007b"
+}
