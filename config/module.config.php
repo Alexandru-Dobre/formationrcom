@@ -34,4 +34,13 @@ return array(
             'angularModules' => array()
         ),
     ),
+    'service_manager' => array(
+        'invokables' => array(
+            'Journaux' => 'Formationnrcom\\Collection\\Journaux',
+        ),
+
+    ),
+    'namespaces_api' => array(
+        'Formationnrcom',
+    ),
 );
